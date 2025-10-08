@@ -22,7 +22,7 @@ class HomeViewBody extends StatelessWidget {
           ),
           Text(
             'Best Seller',
-            style: Styles.titleMedium,
+            style: Styles.textStyle18,
           ),
           BestSellerListViewItem(),
         ],
@@ -56,7 +56,12 @@ class BestSellerListViewItem extends StatelessWidget {
             ),
           ),
           Column(
-            children: [],
+            children: [
+              Text(
+                'Harry Potter and the Goblet of Fire',
+                style: Styles.textStyle20,
+              )
+            ],
           )
         ],
       ),
