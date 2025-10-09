@@ -8,7 +8,7 @@ class CustomBookImageWithButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AspectRatio(
-      aspectRatio: 2.7 / 5,
+      aspectRatio: 2.6 / 5,
       child: Stack(
         children: [
           CustomBookImage(),
