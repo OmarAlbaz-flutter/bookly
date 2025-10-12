@@ -1,11 +1,13 @@
 import 'package:bookly_app/core/utils/style.dart';
+import 'package:bookly_app/features/home/data/models/book_model/book.model.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/best_seller_listview_item.dart';
 import 'package:bookly_app/features/search/presentation/views/widgets/custom_search_textfield.dart';
 import 'package:flutter/material.dart';
 
 class SearchViewBody extends StatelessWidget {
-  const SearchViewBody({super.key});
-
+  const SearchViewBody({
+    super.key,
+  });
   @override
   Widget build(BuildContext context) {
     return CustomScrollView(
@@ -47,7 +49,8 @@ class SearchResultListView extends StatelessWidget {
         (context, index) {
           return Padding(
             padding: const EdgeInsets.symmetric(vertical: 10),
-            child: BookListViewItem(),
+            // child: BookListViewItem(book: ,),
+            child: Text('text'),
           );
         },
       ),
