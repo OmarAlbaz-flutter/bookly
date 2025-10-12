@@ -3,15 +3,17 @@ import 'package:bookly_app/features/home/presentation/views/widgets/custom_book_
 import 'package:flutter/material.dart';
 
 class CustomBookImageWithButton extends StatelessWidget {
-  const CustomBookImageWithButton({super.key});
-
+  const CustomBookImageWithButton({super.key, required this.imageUrl});
+  final String imageUrl;
   @override
   Widget build(BuildContext context) {
     return AspectRatio(
       aspectRatio: 2.6 / 5,
       child: Stack(
         children: [
-          CustomBookImage(),
+          CustomBookImage(
+            imageUrl: imageUrl,
+          ),
           Positioned(
             bottom: 10,
             right: 10,
