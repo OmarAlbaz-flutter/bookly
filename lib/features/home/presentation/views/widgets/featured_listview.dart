@@ -33,12 +33,9 @@ class FeaturedBooksListView extends StatelessWidget {
                       imageUrl:
                           state.books[index].volumeInfo.imageLinks.thumbnail,
                       onTap: () async {
-                        Uri _url = Uri.parse(
+                        Uri url = Uri.parse(
                             state.books[index].volumeInfo.previewLink!);
-                        if (!await launchUrl(_url)) {
-                        } else {
-                          await launchUrl(_url);
-                        }
+                        await launchUrl(url);
                       },
                     ),
                   ),

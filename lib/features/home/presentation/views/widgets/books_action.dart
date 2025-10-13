@@ -14,7 +14,11 @@ class BooksAction extends StatelessWidget {
         children: [
           Expanded(
             child: CustomButton(
-              text: '19.99\$',
+              onPressed: () async {
+                Uri url = Uri.parse(book.volumeInfo.infoLink!);
+                await launchUrl(url);
+              },
+              text: 'Buy the Book',
               backgroundColor: Colors.white,
               textColor: Colors.black,
               borderRadius: BorderRadius.only(
@@ -26,11 +30,8 @@ class BooksAction extends StatelessWidget {
           Expanded(
             child: CustomButton(
               onPressed: () async {
-                Uri _url = Uri.parse(book.volumeInfo.previewLink!);
-                if (!await launchUrl(_url)) {
-                } else {
-                  await launchUrl(_url);
-                }
+                Uri url = Uri.parse(book.volumeInfo.previewLink!);
+                await launchUrl(url);
               },
               fontSize: 16,
               text: 'Free Preview',
