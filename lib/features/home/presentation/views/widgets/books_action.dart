@@ -15,7 +15,7 @@ class BooksAction extends StatelessWidget {
           Expanded(
             child: CustomButton(
               onPressed: () async {
-                launchURL(context, book.volumeInfo.previewLink!);
+                launchURL(context, book.volumeInfo.infoLink!);
               },
               text: 'Buy the Book',
               backgroundColor: Colors.white,
