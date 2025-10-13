@@ -17,10 +17,12 @@ class BookListViewItem extends StatelessWidget {
         GoRouter.of(context).push(AppRouter.kBookDetailsView, extra: book);
       },
       child: SizedBox(
-        height: 120,
+        height: 140,
         child: Row(
           children: [
-            CustomBookImage(imageUrl: book.volumeInfo.imageLinks.thumbnail),
+            CustomBookImage(
+                imageUrl: book.volumeInfo.imageLinks?.thumbnail ??
+                    'https://covers.openlibrary.org/b/id/10909258-L.jpg'),
             SizedBox(
               width: 30,
             ),
@@ -43,7 +45,7 @@ class BookListViewItem extends StatelessWidget {
                     height: 3,
                   ),
                   Text(
-                    book.volumeInfo.authors![0],
+                    book.volumeInfo.authors?[0] ?? 'No Author',
                     style: Styles.textStyle14,
                   ),
                   SizedBox(

@@ -19,7 +19,9 @@ class BookDetailsViewBody extends StatelessWidget {
               child: SingleChildScrollView(
                 child: Column(
                   children: [
-                    CustomBookDetailsAppBar(),
+                    CustomBookDetailsAppBar(
+                      book: book,
+                    ),
                     BookDetailsSection(
                       book: book,
                     ),

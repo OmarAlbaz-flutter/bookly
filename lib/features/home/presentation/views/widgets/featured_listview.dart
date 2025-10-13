@@ -1,4 +1,5 @@
 import 'package:bookly_app/core/utils/app_router.dart';
+import 'package:bookly_app/core/utils/functions/launch_url.dart';
 import 'package:bookly_app/core/widgets/custom_error_widget.dart';
 import 'package:bookly_app/core/widgets/custom_loading_indicator.dart';
 import 'package:bookly_app/features/home/presentation/views/manager/featured_books_cubit/featured_books_cubit.dart';
@@ -6,7 +7,6 @@ import 'package:bookly_app/features/home/presentation/views/widgets/custom_book_
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class FeaturedBooksListView extends StatelessWidget {
   const FeaturedBooksListView({super.key});
@@ -31,11 +31,10 @@ class FeaturedBooksListView extends StatelessWidget {
                     },
                     child: CustomBookImageWithButton(
                       imageUrl:
-                          state.books[index].volumeInfo.imageLinks.thumbnail,
+                          state.books[index].volumeInfo.imageLinks?.thumbnail?? 'https://covers.openlibrary.org/b/id/10909258-L.jpg',
                       onTap: () async {
-                        Uri url = Uri.parse(
+                        launchURL(context,
                             state.books[index].volumeInfo.previewLink!);
-                        await launchUrl(url);
                       },
                     ),
                   ),

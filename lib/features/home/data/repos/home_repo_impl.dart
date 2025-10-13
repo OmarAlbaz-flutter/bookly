@@ -55,11 +55,16 @@ class HomeRepoImpl extends HomeRepo {
       {required String category}) async {
     try {
       var data = await apiService.get(
-          url: 'volumes?Filtering=free-ebooks&q=subject:$category&Sorting=relevance');
+          url:
+              'volumes?Filtering=free-ebooks&q=subject:$category&Sorting=relevance');
 
       List<BookModel> books = [];
-      for (var item in data['items']) {
-        books.add(BookModel.fromJson(item));
+      if (data['items'] != null) {
+        for (var item in data['items']) {
+          books.add(BookModel.fromJson(item));
+        }
+      } else {
+        return left(ServerFailure('No books found for this category'));
       }
 
       return right(books);
