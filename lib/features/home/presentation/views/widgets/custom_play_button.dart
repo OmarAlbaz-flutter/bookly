@@ -2,12 +2,12 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 class CustomPlayButtom extends StatelessWidget {
-  const CustomPlayButtom({super.key});
-
+  const CustomPlayButtom({super.key, this.onTap});
+  final VoidCallback? onTap;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: onTap,
       child: ClipOval(
         child: BackdropFilter(
           filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),

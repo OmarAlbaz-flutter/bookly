@@ -6,6 +6,7 @@ import 'package:bookly_app/features/home/presentation/views/widgets/custom_book_
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class FeaturedBooksListView extends StatelessWidget {
   const FeaturedBooksListView({super.key});
@@ -31,6 +32,14 @@ class FeaturedBooksListView extends StatelessWidget {
                     child: CustomBookImageWithButton(
                       imageUrl:
                           state.books[index].volumeInfo.imageLinks.thumbnail,
+                      onTap: () async {
+                        Uri _url = Uri.parse(
+                            state.books[index].volumeInfo.previewLink!);
+                        if (!await launchUrl(_url)) {
+                        } else {
+                          await launchUrl(_url);
+                        }
+                      },
                     ),
                   ),
                 );
